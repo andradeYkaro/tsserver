@@ -1,4 +1,3 @@
-
 # TeamSpeak Server on AWS
 
 ## Overview
@@ -18,6 +17,7 @@ This project sets up a dedicated TeamSpeak server on an AWS EC2 instance, provid
 - SSH key pair (PEM file)
 - SSH client (e.g., Terminal, PuTTY)
 - TeamSpeak client
+- [Terraform](https://www.terraform.io/downloads.html)
 
 ## Getting Started
 
@@ -63,7 +63,42 @@ This project sets up a dedicated TeamSpeak server on an AWS EC2 instance, provid
 2. Use the admin token to gain administrative permissions.
 3. Set a password for the server under **Edit Virtual Server** > **Security** > **Server Password**.
 
-### 5. Testing and Conclusion
+### 5. Applying Terraform
+
+This project utilizes Terraform to provision and manage the AWS infrastructure for the TeamSpeak server.
+
+1. **Install Terraform**: Ensure that Terraform is installed on your local machine. You can download it from [terraform.io](https://www.terraform.io/downloads.html).
+   
+2. **Configure AWS Credentials**: Set up your AWS credentials in the AWS CLI or export them as environment variables:
+   ```bash
+   export AWS_ACCESS_KEY_ID="your-access-key-id"
+   export AWS_SECRET_ACCESS_KEY="your-secret-access-key"
+   ```
+
+3. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+
+4. **Edit the Terraform Configuration**: Open `main.tf` and modify the `key_name` and `region` as needed.
+
+5. **Initialize Terraform**: Run the following command to initialize Terraform:
+   ```bash
+   terraform init
+   ```
+
+6. **Plan the Infrastructure**: Check the execution plan to see what resources will be created:
+   ```bash
+   terraform plan
+   ```
+
+7. **Apply the Configuration**: Create the infrastructure by applying the Terraform configuration:
+   ```bash
+   terraform apply
+   ```
+
+### 6. Testing and Conclusion
 
 1. Share the **Public IP** and **password** with friends for connection.
 2. Test the connection and stability of the server.
